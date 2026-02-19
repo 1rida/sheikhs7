@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1771527084836",
+    "productId": "3",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-02-19T18:51:24.836Z"
+  },
+  {
+    "id": "1771527135501",
+    "productId": "3",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-02-19T18:52:15.501Z"
+  }
+]

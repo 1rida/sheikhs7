@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "Herbal Hair Oil",
+    "description": "Nourishing herbal hair oil for shiny, strong hair",
+    "image": "/new_image.jpg",
+    "originalPrice": 1500,
+    "discountedPrice": 1000,
+    "rating": 5
+  },
+  {
+    "id": "2",
+    "name": "Advanced Hair Serum",
+    "description": "Lightweight serum for frizz-free smooth hair, designed for all hair types.",
+    "image": "/hair-serum2.png",
+    "originalPrice": 1200,
+    "discountedPrice": 1000,
+    "rating": 4
+  },
+  {
+    "id": "3",
+    "name": "Strong Hold Hair Spray",
+    "description": "Flexible hold hair spray with natural finish, long-lasting.",
+    "image": "/hair-spray2.png",
+    "originalPrice": 1000,
+    "discountedPrice": 800,
+    "rating": 4
+  }
+]
