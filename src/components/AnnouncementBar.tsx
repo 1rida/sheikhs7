@@ -17,7 +17,7 @@ const AnnouncementBar = () => {
     const tl = gsap.timeline({ repeat: -1 }); // Loop indefinitely
 
     // Function to animate messages
-    const animateMessage = (index: number) => {
+    const animateMessage = () => {
       const current = barRef.current;
       if (!current) return;
 
@@ -37,7 +37,7 @@ const AnnouncementBar = () => {
     gsap.to(barRef.current, { opacity: 1, duration: 0.5 });
 
     // Start the message cycle
-    animateMessage(currentMessageIndex);
+    animateMessage();
 
     // Clean up on unmount
     return () => {

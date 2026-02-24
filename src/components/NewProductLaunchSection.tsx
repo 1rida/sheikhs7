@@ -76,13 +76,13 @@ const NewProductLaunchSection = () => {
   }, []);
 
   const handleAddToCart = () => {
-    // Placeholder product details for Sheikh's7 Joint Pain Oil
+    // Placeholder product details for Sheikh&apos;s7 Joint Pain Oil
     const product = {
       id: 'sheikhs7-joint-pain-oil',
-      name: "Sheikh's7 Joint Pain Oil",
+      name: "Sheikh&apos;s7 Joint Pain Oil",
       price: 29.99, // Example price
       imageUrl: '/downloaded_image.jpg', // Use the image for this product
-      description: 'Experience unparalleled relief with our expertly formulated joint pain oil.', // Add description for CartItem
+      description: "Experience unparalleled relief with our expertly formulated joint pain oil.", // Add description for CartItem
       image: '/downloaded_image.jpg', // Add image for CartItem
       originalPrice: 35.00, // Example original price
       discountedPrice: 29.99, // Example discounted price
@@ -104,11 +104,11 @@ const NewProductLaunchSection = () => {
 
       <div className="md:w-1/2 text-center md:text-left p-4 z-10">
         <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-green-600 drop-shadow-lg">
-          <span className="text-black">We have launched a new product:</span> <br /> <br /> Sheikh's7 Joint Pain Oil
+          <span className="text-black">We have launched a new product:</span> <br /> <br /> Sheikh&apos;s7 Joint Pain Oil
         </h1>
         <p ref={paragraphRef} className="text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0">
           Experience unparalleled relief with our expertly formulated joint pain oil.
-          Crafted with traditional herbs and modern science, Sheikh's7 offers a soothing sensation
+          Crafted with traditional herbs and modern science, Sheikh&apos;s7 offers a soothing sensation
           and long-lasting comfort, helping you reclaim your active lifestyle.
         </p>
         <div ref={ctaButtonsRef} className="flex justify-center md:justify-start space-x-4">
@@ -130,7 +130,7 @@ const NewProductLaunchSection = () => {
         <Image
           ref={imageRef}
           src="/downloaded_image.png"
-          alt="Sheikh's7 Joint Pain Oil"
+          alt="Sheikh&apos;s7 Joint Pain Oil"
           width={400}
           height={400}
           className="rounded-xl shadow-2xl border-4 border-white max-w-full h-auto"
@@ -142,8 +142,8 @@ const NewProductLaunchSection = () => {
         <ProductDetailModal
           product={{ // Placeholder product data for the modal
             id: 'sheikhs7-joint-pain-oil',
-            name: "Sheikh's7 Joint Pain Oil",
-            description: 'Experience unparalleled relief with our expertly formulated joint pain oil. Crafted with traditional herbs and modern science, Sheikh\'s7 offers a soothing sensation and long-lasting comfort, helping you reclaim your active lifestyle.',
+            name: "Sheikh&apos;s7 Joint Pain Oil",
+            description: "Experience unparalleled relief with our expertly formulated joint pain oil. Crafted with traditional herbs and modern science, Sheikh&apos;s7 offers a soothing sensation and long-lasting comfort, helping you reclaim your active lifestyle.",
             originalPrice: 1500,
             discountedPrice: 1200,
             image: '/downloaded_image.jpg',

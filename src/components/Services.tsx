@@ -108,7 +108,7 @@ const Services: React.FC = () => {
             <div className="absolute w-[60%] h-[90%] z-10">
               <Image
                 src="/hair-care-1.jpg"
-                alt="Sheikh's7 Hair Oil"
+                alt="Sheikh&apos;s7 Hair Oil"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-2xl shadow-2xl"
@@ -141,14 +141,14 @@ const Services: React.FC = () => {
               </div>
               
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Sheikh's7 Hair Serum</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Sheikh&apos;s7 Hair Serum</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Unlock brilliant <strong>shine and smoothness</strong> with our lightweight, non-greasy serum. It instantly tames frizz and flyaways, leaving your hair silky, manageable, and radiant all day.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Sheikh's7 Hair Spray</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Sheikh&apos;s7 Hair Spray</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Lock in your style with a <strong>long-lasting, flexible hold</strong>. This fine mist protects your hairstyle against humidity and environmental stressors, keeping it fresh and perfectly in place without stiffness.
                 </p>

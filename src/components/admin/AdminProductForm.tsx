@@ -33,7 +33,8 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md space-y-4">
+    <form onSubmit={handleSubmit} className="bg-white p-4 md:p-8 rounded-lg shadow-md space-y-4">
+      <h2 className="text-xl md:text-2xl font-bold mb-4">{product ? 'Edit Product' : 'Add New Product'}</h2>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Product Name</label>
         <input
@@ -41,7 +42,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
           required
         />
       </div>
@@ -52,7 +53,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
           required
         ></textarea>
       </div>
@@ -63,31 +64,33 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
           id="image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
           required
         />
       </div>
-      <div>
-        <label htmlFor="originalPrice" className="block text-sm font-medium text-gray-700">Original Price</label>
-        <input
-          type="number"
-          id="originalPrice"
-          value={originalPrice}
-          onChange={(e) => setOriginalPrice(Number(e.target.value))}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="discountedPrice" className="block text-sm font-medium text-gray-700">Discounted Price</label>
-        <input
-          type="number"
-          id="discountedPrice"
-          value={discountedPrice}
-          onChange={(e) => setDiscountedPrice(Number(e.target.value))}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          required
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="originalPrice" className="block text-sm font-medium text-gray-700">Original Price</label>
+          <input
+            type="number"
+            id="originalPrice"
+            value={originalPrice}
+            onChange={(e) => setOriginalPrice(Number(e.target.value))}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="discountedPrice" className="block text-sm font-medium text-gray-700">Discounted Price</label>
+          <input
+            type="number"
+            id="discountedPrice"
+            value={discountedPrice}
+            onChange={(e) => setDiscountedPrice(Number(e.target.value))}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
+            required
+          />
+        </div>
       </div>
       <div>
         <label htmlFor="rating" className="block text-sm font-medium text-gray-700">Rating (0-5)</label>
@@ -99,13 +102,13 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
           min="0"
           max="5"
           step="0.1"
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base"
         />
       </div>
       <div>
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors text-sm md:text-base"
         >
           {product ? 'Update Product' : 'Add Product'}
         </button>

@@ -17,24 +17,22 @@ const OilDroplets = () => {
       const xFactor = -5 + Math.random() * 10;
       const yFactor = -5 + Math.random() * 10;
       const zFactor = -5 + Math.random() * 10;
-      temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
+      temp.push({ t, factor, speed, xFactor, yFactor, zFactor });
     }
     return temp;
   }, []);
 
-  useFrame((_state) => { // Changed 'state' to '_state'
+  useFrame(() => {
     particles.forEach((particle, i) => {
-      let { t, mx, my } = particle; // 't' needs to be let as it's reassigned
-      const { factor, speed, xFactor, yFactor, zFactor } = particle; // These can be const
+      let { t } = particle;
+      const { factor, speed, xFactor, yFactor, zFactor } = particle;
       t = particle.t += speed / 2;
-      const a = Math.cos(t) + Math.sin(t * 1) / 10;
-      const b = Math.sin(t) + Math.cos(t * 2) / 10;
       const s = Math.cos(t);
       
       dummy.position.set(
-        (particle.mx / 10) * a + xFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
-        (particle.my / 10) * b + yFactor + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,
-        (particle.my / 10) * b + zFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 3) * factor) / 10
+        xFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
+        yFactor + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,
+        zFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 3) * factor) / 10
       );
 
       dummy.scale.set(s, s, s);

@@ -14,5 +14,21 @@
     "type": "add",
     "userId": "anonymous",
     "timestamp": "2026-02-19T18:52:15.501Z"
+  },
+  {
+    "id": "1771931837239",
+    "productId": "1",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-02-24T11:17:17.239Z"
+  },
+  {
+    "id": "1771937009489",
+    "productId": "2",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-02-24T12:43:29.489Z"
   }
 ]

@@ -2,18 +2,12 @@
 
 import AdminProductForm from '@/components/admin/AdminProductForm';
 import { useRouter } from 'next/navigation';
-
-interface ProductFormData {
-  name: string;
-  description: string;
-  price: number;
-  // Add other product fields as necessary
-}
+import { Product } from '@/context/CartContext';
 
 export default function AdminAddProductPage() {
   const router = useRouter();
 
-  const handleSubmit = async (formData: ProductFormData) => {
+  const handleSubmit = async (formData: Omit<Product, 'id'>) => {
     try {
       const res = await fetch('/api/admin/products', {
         method: 'POST',
@@ -39,8 +33,8 @@ export default function AdminAddProductPage() {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Add New Product</h1>
+    <div className="p-4 md:p-8">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Add New Product</h1>
       <AdminProductForm onSubmit={handleSubmit} />
     </div>
   );

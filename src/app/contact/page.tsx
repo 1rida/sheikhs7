@@ -77,7 +77,7 @@ Message: ${message}`;
                   <strong>Address:</strong> Karachi
                 </p>
                 <p>
-                  <strong>Email:</strong> sheikhseven07@gmail.com
+                  <strong>Email:</strong> sheikhsevenop@gmail.com
                 </p>
                 <p>
                   <strong>Phone:</strong> +92 309 2138872

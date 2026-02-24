@@ -6,9 +6,16 @@ interface CountdownTimerProps {
   targetDate: string; // ISO 8601 string, e.g., "2026-03-01T00:00:00Z"
 }
 
-const calculateTimeLeft = (targetDate: string) => {
+interface TimeLeft {
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+}
+
+const calculateTimeLeft = (targetDate: string): TimeLeft => {
   const difference = +new Date(targetDate) - +new Date();
-  let timeLeft = {};
+  let timeLeft: TimeLeft = {};
 
   if (difference > 0) {
     timeLeft = {
@@ -22,7 +29,7 @@ const calculateTimeLeft = (targetDate: string) => {
 };
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(targetDate));
 
   useEffect(() => {
     const timer = setTimeout(() => {

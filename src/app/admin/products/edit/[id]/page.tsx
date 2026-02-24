@@ -3,7 +3,7 @@
 import AdminProductForm from '@/components/admin/AdminProductForm';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Product } from '@/context/CartContext'; // Re-use Product interface
+import { Product } from '@/context/CartContext';
 
 export default function AdminEditProductPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -33,14 +33,14 @@ export default function AdminEditProductPage({ params }: { params: { id: string 
     fetchProduct();
   }, [params.id]);
 
-  const handleSubmit = async (formData: Product) => { // Use Product interface for formData
+  const handleSubmit = async (formData: Omit<Product, 'id'>) => {
     try {
       const res = await fetch(`/api/admin/products/${params.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, id: params.id }),
       });
 
       if (!res.ok) {
@@ -58,13 +58,13 @@ export default function AdminEditProductPage({ params }: { params: { id: string 
     }
   };
 
-  if (loading) return <div className="p-8">Loading product...</div>;
-  if (error) return <div className="p-8 text-red-500">Error: {error}</div>;
-  if (!product) return <div className="p-8">Product not found.</div>;
+  if (loading) return <div className="p-4 text-center">Loading product...</div>;
+  if (error) return <div className="p-4 text-red-500 text-center">Error: {error}</div>;
+  if (!product) return <div className="p-4 text-center">Product not found.</div>;
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Edit Product</h1>
+    <div className="p-4 md:p-8">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Edit Product</h1>
       <AdminProductForm product={product} onSubmit={handleSubmit} />
     </div>
   );
