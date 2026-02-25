@@ -95,8 +95,7 @@ const HerbalSolutionSection = () => {
                 className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 md:-bottom-12 md:-right-12 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 border-4 border-white rounded-lg shadow-xl"
               >
                 <Image
-                  src="/downloaded_image.png
-                  "
+                  src="/downloaded_image.png"
                   alt="Herbal Joint Pain Oil"
                   fill
                   style={{ objectFit: 'cover' }}
