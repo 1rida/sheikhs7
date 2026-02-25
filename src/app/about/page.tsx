@@ -73,7 +73,7 @@ const AboutPage = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section ref={whoWeAreSectionRef} className="container mx-auto py-24 px-6 overflow-hidden">
+      <section ref={whoWeAreSectionRef} className="container mx-auto py-12 px-6 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-96 md:h-[500px] rounded-lg shadow-2xl overflow-hidden who-we-are-image">
             <Image 
@@ -107,7 +107,7 @@ const AboutPage = () => {
       </section>
 
       {/* Animated Logo Section */}
-      <section ref={commitmentSectionRef} className="py-24 px-6 text-center">
+      <section ref={commitmentSectionRef} className="py-12 px-6 text-center">
         <div className="commitment-content">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Sheikh7 — Crafted by Nature, Trusted for Results

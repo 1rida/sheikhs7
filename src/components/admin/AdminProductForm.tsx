@@ -36,7 +36,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
     <form onSubmit={handleSubmit} className="bg-white p-4 md:p-8 rounded-lg shadow-md space-y-4">
       <h2 className="text-xl md:text-2xl font-bold mb-4">{product ? 'Edit Product' : 'Add New Product'}</h2>
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Product Name</label>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-900">Product Name</label>
         <input
           type="text"
           id="name"
@@ -47,7 +47,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
         />
       </div>
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+        <label htmlFor="description" className="block text-sm font-medium text-gray-900">Description</label>
         <textarea
           id="description"
           value={description}
@@ -58,7 +58,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
         ></textarea>
       </div>
       <div>
-        <label htmlFor="image" className="block text-sm font-medium text-gray-700">Image URL</label>
+        <label htmlFor="image" className="block text-sm font-medium text-gray-900">Image URL</label>
         <input
           type="text"
           id="image"
@@ -70,7 +70,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="originalPrice" className="block text-sm font-medium text-gray-700">Original Price</label>
+          <label htmlFor="originalPrice" className="block text-sm font-medium text-gray-900">Original Price</label>
           <input
             type="number"
             id="originalPrice"
@@ -81,7 +81,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
           />
         </div>
         <div>
-          <label htmlFor="discountedPrice" className="block text-sm font-medium text-gray-700">Discounted Price</label>
+          <label htmlFor="discountedPrice" className="block text-sm font-medium text-gray-900">Discounted Price</label>
           <input
             type="number"
             id="discountedPrice"
@@ -93,7 +93,7 @@ const AdminProductForm: React.FC<AdminProductFormProps> = ({ product, onSubmit }
         </div>
       </div>
       <div>
-        <label htmlFor="rating" className="block text-sm font-medium text-gray-700">Rating (0-5)</label>
+        <label htmlFor="rating" className="block text-sm font-medium text-gray-900">Rating (0-5)</label>
         <input
           type="number"
           id="rating"

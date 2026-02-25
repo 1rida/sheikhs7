@@ -4,8 +4,8 @@
     "name": "Herbal Hair Oil",
     "description": "Nourishing herbal hair oil for shiny, strong hair",
     "image": "/new_image.jpg",
-    "originalPrice": 1500,
-    "discountedPrice": 1000,
+    "originalPrice": 1600,
+    "discountedPrice": 1250,
     "rating": 5
   },
   {
@@ -13,8 +13,8 @@
     "name": "Advanced Hair Serum",
     "description": "Lightweight serum for frizz-free smooth hair, designed for all hair types.",
     "image": "/hair-serum2.png",
-    "originalPrice": 1200,
-    "discountedPrice": 1000,
+    "originalPrice": 2000,
+    "discountedPrice": 1500,
     "rating": 4
   },
   {

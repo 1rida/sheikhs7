@@ -72,10 +72,10 @@ const AnalyticsDashboard: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-xl md:text-2xl font-bold mb-4">Analytics Dashboard</h1>
+      <h1 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Analytics Dashboard</h1>
 
       <section className="mb-8">
-        <h2 className="text-lg md:text-xl font-semibold mb-3">Cart Events</h2>
+        <h2 className="text-lg md:text-xl font-semibold mb-3 text-gray-900">Cart Events</h2>
         {analyticsData.cartEvents.length === 0 ? (
           <p className="p-2 bg-white shadow-sm rounded-md">No cart events recorded yet.</p>
         ) : (
@@ -83,22 +83,22 @@ const AnalyticsDashboard: React.FC = () => {
             <table className="min-w-full leading-normal">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     ID
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     Type
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden sm:table-cell">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden sm:table-cell">
                     Product ID
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden md:table-cell">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden md:table-cell">
                     Quantity
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden lg:table-cell">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden lg:table-cell">
                     User ID
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     Timestamp
                   </th>
                 </tr>
@@ -106,7 +106,7 @@ const AnalyticsDashboard: React.FC = () => {
               <tbody>
                 {analyticsData.cartEvents.map((event) => (
                   <tr key={event.id} className="hover:bg-gray-50">
-                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm text-gray-900">
                       {event.id.substring(0, 8)}...
                     </td>
                     <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm">
@@ -114,16 +114,16 @@ const AnalyticsDashboard: React.FC = () => {
                         {event.type.toUpperCase()}
                       </span>
                     </td>
-                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm hidden sm:table-cell">
+                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm text-gray-900 hidden sm:table-cell">
                       {event.productId.substring(0, 8)}...
                     </td>
                     <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm hidden md:table-cell">
                       {event.quantity}
                     </td>
-                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm hidden lg:table-cell">
+                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm text-gray-900 hidden lg:table-cell">
                       {event.userId.substring(0, 8)}...
                     </td>
-                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm text-gray-900">
                       {new Date(event.timestamp).toLocaleDateString()}
                     </td>
                   </tr>
@@ -135,7 +135,7 @@ const AnalyticsDashboard: React.FC = () => {
       </section>
 
       <section>
-        <h2 className="text-lg md:text-xl font-semibold mb-3">Checkout Events</h2>
+        <h2 className="text-lg md:text-xl font-semibold mb-3 text-gray-900">Checkout Events</h2>
         {analyticsData.checkoutEvents.length === 0 ? (
           <p className="p-2 bg-white shadow-sm rounded-md">No checkout events recorded yet.</p>
         ) : (
@@ -143,19 +143,19 @@ const AnalyticsDashboard: React.FC = () => {
             <table className="min-w-full leading-normal">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     ID
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden sm:table-cell">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden sm:table-cell">
                     Customer Details
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     Items & Total
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden md:table-cell">
+                  <th className="px-3 py-2 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden md:table-cell">
                     Timestamp
                   </th>
                 </tr>
@@ -163,16 +163,16 @@ const AnalyticsDashboard: React.FC = () => {
               <tbody>
                 {analyticsData.checkoutEvents.map((event) => (
                   <tr key={event.id} className="hover:bg-gray-50">
-                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm text-gray-900">
                       {event.id.substring(0, 8)}...
                     </td>
                     <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm hidden sm:table-cell">
                       <p className="text-gray-900 font-semibold">{event.customerDetails?.name}</p>
-                      <p className="text-gray-600 text-xs">{event.customerDetails?.phone}</p>
+                      <p className="text-gray-900 text-xs">{event.customerDetails?.phone}</p>
                     </td>
                     <td className="px-3 py-3 border-b border-gray-200 bg-white text-sm">
                       <p className="text-gray-900">PKR. {event.totalAmount.toFixed(2)}</p>
-                      <p className="text-gray-600 text-xs">
+                      <p className="text-gray-900 text-xs">
                         {event.cartItems.map(item => `${item.productId.substring(0,4)} (x${item.quantity})`).join(', ')}
                       </p>
                     </td>

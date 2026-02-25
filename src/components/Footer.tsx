@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -75,9 +76,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4 tracking-wider">Links</h4>
             <ul className="space-y-3">
-              <li><a href="/" className="hover:text-green-400 transition-colors">Home</a></li>
-              <li><a href="#services" className="hover:text-green-400 transition-colors">Products</a></li>
-              <li><a href="#about" className="hover:text-green-400 transition-colors">About Us</a></li>
+              <li><Link href="/" className="hover:text-green-400 transition-colors">Home</Link></li>
+              <li><Link href="/products" className="hover:text-green-400 transition-colors">Products</Link></li>
+              <li><Link href="/about" className="hover:text-green-400 transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-green-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
           
@@ -85,8 +87,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4 tracking-wider">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="/privacy-policy" className="hover:text-green-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms-of-service" className="hover:text-green-400 transition-colors">Terms of Service</a></li>
+              <li><Link href="/privacy-policy" className="hover:text-green-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-green-400 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 

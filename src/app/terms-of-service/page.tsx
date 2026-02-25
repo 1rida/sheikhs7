@@ -4,8 +4,8 @@ import Image from 'next/image'; // Import Image component
 
 const TermsOfServicePage: React.FC = () => {
   return (
-    <div className="container mx-auto p-8 max-w-3xl">
-      <div className="relative w-full h-48 mb-8 overflow-hidden rounded-lg shadow-md">
+    <div className="bg-white container mx-auto p-8 max-w-3xl">
+      <div className="relative w-full h-32 sm:h-48 mb-8 overflow-hidden rounded-lg shadow-md">
         <Image
           src="/terms-of-service-banner.jpg" // Using the selected image
           alt="Terms of Service Banner"

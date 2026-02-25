@@ -72,13 +72,13 @@ const AdminProductList: React.FC = () => {
         <table className="min-w-full leading-normal">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                 Product
               </th>
-              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider hidden md:table-cell">
+              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider hidden md:table-cell">
                 Price
               </th>
-              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -101,7 +101,7 @@ const AdminProductList: React.FC = () => {
                       <p className="text-gray-900 font-semibold whitespace-no-wrap">
                         {product.name}
                       </p>
-                      <p className="text-gray-600 whitespace-no-wrap text-xs md:hidden">
+                      <p className="text-gray-900 whitespace-no-wrap text-xs md:hidden">
                         PKR. {product.discountedPrice}
                       </p>
                     </div>
@@ -111,7 +111,7 @@ const AdminProductList: React.FC = () => {
                   <p className="text-gray-900 whitespace-no-wrap">
                     PKR. {product.discountedPrice}
                   </p>
-                  <p className="text-gray-600 line-through whitespace-no-wrap">
+                  <p className="text-gray-900 line-through whitespace-no-wrap">
                     PKR. {product.originalPrice}
                   </p>
                 </td>

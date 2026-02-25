@@ -5,6 +5,7 @@ import { CartProvider } from "@/context/CartContext";
 import { SearchProvider } from "@/context/SearchContext";
 import "./globals.css";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import AnnouncementModal from "@/components/AnnouncementModal";
 
 
 const geistSans = localFont({
@@ -42,6 +43,7 @@ export default function RootLayout({
         <SearchProvider>
           <CartProvider>
             <AnnouncementBar />
+            <AnnouncementModal />
             <Header />
             {children}
             <Footer />

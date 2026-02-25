@@ -93,7 +93,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
           className="absolute inset-0 bg-black bg-opacity-60 text-white flex flex-col justify-center items-center p-4 pointer-events-auto" // Re-enable pointer events for overlay content
           style={{ transform: 'translateY(100%)' }} // Initial hidden state
         >
-          <h3 className="text-xl font-bold">{product.name}</h3>
+          <h3 className="text-xl font-bold text-black">{product.name}</h3>
           <p className="text-sm text-center my-2">{product.description}</p>
           <div className="my-2">
             <StarRating rating={product.rating || 4} />
