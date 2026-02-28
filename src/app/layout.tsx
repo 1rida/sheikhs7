@@ -5,7 +5,6 @@ import { CartProvider } from "@/context/CartContext";
 import { SearchProvider } from "@/context/SearchContext";
 import "./globals.css";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import AnnouncementModal from "@/components/AnnouncementModal";
 
 
 const geistSans = localFont({
@@ -25,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 import Footer from "@/components/Footer";
+import PaymentMethods from "@/components/PaymentMethods";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 export default function RootLayout({
@@ -43,9 +43,9 @@ export default function RootLayout({
         <SearchProvider>
           <CartProvider>
             <AnnouncementBar />
-            <AnnouncementModal />
             <Header />
             {children}
+            <PaymentMethods />
             <Footer />
             <WhatsAppFloatingButton />
           </CartProvider>

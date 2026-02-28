@@ -2,37 +2,38 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Cookies from 'js-cookie';
 import Link from 'next/link';
 
-export default function AdminLoginPage() {
+export default function AdminSignupPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
 
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await fetch('/api/admin/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
 
       if (res.ok) {
-        const data = await res.json();
-        // Set cookie for the whole domain (path: '/')
-        Cookies.set('admin_token', data.token, { expires: 7, path: '/' }); 
-        router.push('/admin');
+        setSuccess('Account created successfully! Redirecting to login...');
+        setTimeout(() => {
+          router.push('/admin/login');
+        }, 2000);
       } else {
         const data = await res.json();
-        setError(data.message || 'Invalid credentials');
+        setError(data.message || 'Signup failed');
       }
     } catch (err) {
-      setError('An error occurred during login.');
+      setError('An error occurred during signup.');
       console.error(err);
     }
   };
@@ -40,9 +41,10 @@ export default function AdminLoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-6 text-black">Admin Login</h1>
+        <h1 className="text-2xl font-bold text-center mb-6">Admin Signup</h1>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        <form onSubmit={handleLogin} className="space-y-4">
+        {success && <p className="text-green-500 text-center mb-4">{success}</p>}
+        <form onSubmit={handleSignup} className="space-y-4">
           <div>
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
             <input
@@ -67,13 +69,13 @@ export default function AdminLoginPage() {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors"
           >
-            Log In
+            Sign Up
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
-          Don&#39;t have an account? <Link href="/admin/signup" className="text-green-600 hover:underline">Sign up</Link>
+          Already have an account? <Link href="/admin/login" className="text-blue-600 hover:underline">Log in</Link>
         </p>
       </div>
     </div>

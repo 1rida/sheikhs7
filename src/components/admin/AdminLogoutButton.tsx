@@ -7,8 +7,14 @@ const AdminLogoutButton: React.FC = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    Cookies.remove('admin_token'); // Clear the admin token cookie
-    router.push('/admin/login'); // Redirect to the admin login page
+    // Clear the admin token cookie explicitly for the root path
+    Cookies.remove('admin_token', { path: '/' }); 
+    
+    // Also remove without path just in case
+    Cookies.remove('admin_token');
+
+    // Force a complete page refresh to clear state and trigger middleware
+    window.location.href = '/admin/login';
   };
 
   return (
