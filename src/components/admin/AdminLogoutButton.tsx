@@ -7,20 +7,29 @@ interface AdminLogoutButtonProps {
 }
 
 const AdminLogoutButton: React.FC<AdminLogoutButtonProps> = ({ className }) => {
-  const handleLogout = () => {
-    // Clear the admin token cookie explicitly for the root path
-    Cookies.remove('admin_token', { path: '/' }); 
-    Cookies.remove('admin_token');
-    
-    // Also clear common next-auth cookies just in case
-    Cookies.remove('next-auth.session-token', { path: '/' });
-    Cookies.remove('__Secure-next-auth.session-token', { path: '/' });
-    Cookies.remove('next-auth.csrf-token', { path: '/' });
-    Cookies.remove('next-auth.callback-url', { path: '/' });
+  const handleLogout = async () => {
+    try {
+      // 1. Call the server-side logout API (critical for Vercel/HTTPS)
+      await fetch('/api/admin/logout', { method: 'POST' });
 
-    // Force a hard redirect to the home page
-    // This will clear all React state and trigger the middleware on the next request
-    window.location.href = '/';
+      // 2. Client-side cookie cleanup (extra layer of safety)
+      Cookies.remove('admin_token', { path: '/' });
+      Cookies.remove('admin_token');
+      Cookies.remove('next-auth.session-token', { path: '/' });
+      Cookies.remove('__Secure-next-auth.session-token', { path: '/' });
+      
+      // 3. Clear all session and local storage
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+
+      // 4. Force a hard redirect to the home page
+      // This will reset all React state and trigger middleware immediately
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Even if API fails, try to redirect
+      window.location.href = '/';
+    }
   };
 
   return (
