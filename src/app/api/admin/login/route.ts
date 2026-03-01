@@ -17,8 +17,13 @@ export async function POST(request: Request) {
     const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
     const users = JSON.parse(fileContent);
 
+    interface User {
+      username: string;
+      password: string;
+    }
+
     // Find the user
-    const user = users.find((u: any) => u.username === username);
+    const user = users.find((u: User) => u.username === username);
 
     if (!user) {
       return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });

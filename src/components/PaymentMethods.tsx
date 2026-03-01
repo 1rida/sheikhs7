@@ -4,12 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 
 const PaymentMethods = () => {
-  const methods = [
-    { src: '/easypaisa.png', alt: 'Easypaisa' },
-    { src: '/jazzcash.png', alt: 'JazzCash' },
-    { src: '/cod.png', alt: 'Cash on Delivery' },
-  ];
-
   return (
     <div className="bg-gray-50 border-t border-gray-200 py-6">
       <div className="container mx-auto px-4 flex flex-col items-center">

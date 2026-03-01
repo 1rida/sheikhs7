@@ -30,5 +30,37 @@
     "type": "add",
     "userId": "anonymous",
     "timestamp": "2026-02-24T12:43:29.489Z"
+  },
+  {
+    "id": "1772367671023",
+    "productId": "3",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-03-01T12:21:11.023Z"
+  },
+  {
+    "id": "1772367671970",
+    "productId": "2",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-03-01T12:21:11.970Z"
+  },
+  {
+    "id": "1772367673309",
+    "productId": "1",
+    "quantity": 1,
+    "type": "add",
+    "userId": "anonymous",
+    "timestamp": "2026-03-01T12:21:13.309Z"
+  },
+  {
+    "id": "1772367681745",
+    "productId": "1",
+    "quantity": 1,
+    "type": "remove",
+    "userId": "anonymous",
+    "timestamp": "2026-03-01T12:21:21.745Z"
   }
 ]

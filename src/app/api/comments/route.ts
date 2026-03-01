@@ -20,8 +20,8 @@ async function readComments(): Promise<Comment[]> {
       return [];
     }
     return JSON.parse(data);
-  } catch (error: any) {
-    if (error.code === 'ENOENT') {
+  } catch (error: unknown) {
+    if ((error as { code?: string }).code === 'ENOENT') {
       return [];
     }
     return [];
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
     await writeComments(comments);
 
     return NextResponse.json(newComment, { status: 201 });
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ message: (error as Error).message }, { status: 500 });
   }
 }

@@ -17,8 +17,13 @@ export async function POST(request: Request) {
     const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
     const users = JSON.parse(fileContent);
 
+    interface User {
+      username: string;
+      password: string;
+    }
+
     // Check if user already exists
-    if (users.find((u: any) => u.username === username)) {
+    if (users.find((u: User) => u.username === username)) {
       return NextResponse.json({ message: 'User already exists' }, { status: 400 });
     }
 

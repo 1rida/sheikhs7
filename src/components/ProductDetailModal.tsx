@@ -63,23 +63,23 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
   const targetDate = threeDaysFromNow.toISOString();
 
   useEffect(() => {
+    const fetchComments = async () => {
+      if (!product) return;
+      try {
+        const res = await fetch(`/api/comments?productId=${product.id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setComments(data);
+        }
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    };
+
     if (product) {
       fetchComments();
     }
   }, [product]);
-
-  const fetchComments = async () => {
-    if (!product) return;
-    try {
-      const res = await fetch(`/api/comments?productId=${product.id}`);
-      if (res.ok) {
-        const data = await res.json();
-        setComments(data);
-      }
-    } catch (error) {
-      console.error('Error fetching comments:', error);
-    }
-  };
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

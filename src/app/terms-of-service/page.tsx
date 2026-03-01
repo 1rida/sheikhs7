@@ -4,17 +4,17 @@ import Image from 'next/image'; // Import Image component
 
 const TermsOfServicePage: React.FC = () => {
   return (
-    <div className="bg-white container mx-auto p-8 max-w-3xl">
-      <div className="relative w-full h-32 sm:h-48 mb-8 overflow-hidden rounded-lg shadow-md">
+    <div className="bg-white container mx-auto p-4 md:p-8 max-w-3xl">
+      <div className="relative w-full h-40 sm:h-56 md:h-64 mb-8 overflow-hidden rounded-lg shadow-md bg-black">
         <Image
           src="/terms-of-service-banner.jpg" // Using the selected image
           alt="Terms of Service Banner"
           layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
+          objectFit="contain"
+          className="rounded-lg md:object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-4xl font-bold text-white z-10">Terms of Service</h1>
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-white z-10 text-center px-4">Terms of Service</h1>
         </div>
       </div>
 
