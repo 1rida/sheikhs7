@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import AdminLogoutButton from '@/components/admin/AdminLogoutButton';
 
 export default function AdminLayout({
   children,
@@ -31,11 +32,11 @@ export default function AdminLayout({
 
       {/* Sidebar */}
       <aside className={`
-        fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white p-6 space-y-6 transform transition-transform duration-300 ease-in-out
+        fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white p-6 flex flex-col transform transition-transform duration-300 ease-in-out
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         lg:translate-x-0 lg:static lg:inset-0
       `}>
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-10">
           <div className="text-2xl font-bold">Admin Panel</div>
           <button onClick={toggleSidebar} className="lg:hidden text-gray-400 hover:text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +44,8 @@ export default function AdminLayout({
             </svg>
           </button>
         </div>
-        <nav>
+        
+        <nav className="flex-1">
           <ul className="space-y-3">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -60,6 +62,12 @@ export default function AdminLayout({
             ))}
           </ul>
         </nav>
+
+        <div className="mt-auto pt-6 border-t border-gray-700">
+          <AdminLogoutButton 
+            className="w-full py-2 px-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded transition-colors"
+          />
+        </div>
       </aside>
 
       {/* Main Content */}
