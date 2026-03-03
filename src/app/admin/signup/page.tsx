@@ -41,7 +41,7 @@ export default function AdminSignupPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-6">Admin Signup</h1>
+        <h1 className="text-2xl font-bold text-center mb-6 text-black">Admin Signup</h1>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         {success && <p className="text-green-500 text-center mb-4">{success}</p>}
         <form onSubmit={handleSignup} className="space-y-4">
@@ -52,7 +52,7 @@ export default function AdminSignupPage() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-black"
               required
             />
           </div>
@@ -63,7 +63,7 @@ export default function AdminSignupPage() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-black"
               required
             />
           </div>

@@ -2,18 +2,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCart } from '../context/CartContext'; // Import useCart
+import { useCart } from '../context/CartContext'; 
+import { useAuth } from '../context/AuthContext'; 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { getCartItemCount } = useCart(); // Use the cart hook
+  const { getCartItemCount } = useCart(); 
+  const { isLoggedIn, logout } = useAuth();
 
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Admin', href: '/admin' }, // Added Admin link
   ];
 
   return (
@@ -51,16 +52,51 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
+              {isLoggedIn ? (
+                <>
+                  <li className="mx-4">
+                    <Link
+                      href="/admin"
+                      className="relative text-black text-lg font-medium hover:text-green-700
+                                 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-600
+                                 after:transition-all after:duration-300 hover:after:w-full"
+                    >
+                      Admin
+                    </Link>
+                  </li>
+                  <li className="mx-4">
+                    <button
+                      onClick={logout}
+                      className="relative text-black text-lg font-medium hover:text-red-700
+                                 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600
+                                 after:transition-all after:duration-300 hover:after:w-full"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li className="mx-4">
+                  <Link
+                    href="/admin-login"
+                    className="relative text-black text-lg font-medium hover:text-green-700
+                               after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-600
+                               after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Login
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
 
           <div className="ml-6 hidden md:block">
-            <Link href="/cart"> {/* Wrap button with Link */}
+            <Link href="/cart"> 
               <button className="relative text-black hover:text-green-700 focus:outline-none cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                 </svg>
-                {getCartItemCount() > 0 && ( // Conditionally render count
+                {getCartItemCount() > 0 && ( 
                   <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
                     {getCartItemCount()}
                   </span>
@@ -93,6 +129,37 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+            {isLoggedIn ? (
+              <>
+                <li className="my-2">
+                  <Link
+                    href="/admin"
+                    className="text-black text-xl font-medium hover:text-green-700"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Admin
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <button
+                    onClick={() => { logout(); setIsOpen(false); }}
+                    className="text-black text-xl font-medium hover:text-red-700"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li className="my-2">
+                <Link
+                  href="/admin-login"
+                  className="text-black text-xl font-medium hover:text-green-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       )}
@@ -101,5 +168,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

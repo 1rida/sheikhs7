@@ -1,34 +1,25 @@
 'use client';
 
-import Cookies from 'js-cookie';
+import { useAuth } from '@/context/AuthContext';
 
 interface AdminLogoutButtonProps {
   className?: string;
 }
 
 const AdminLogoutButton: React.FC<AdminLogoutButtonProps> = ({ className }) => {
+  const { logout } = useAuth();
+
   const handleLogout = async () => {
     try {
-      // 1. Call the server-side logout API (critical for Vercel/HTTPS)
+      // 1. Call the server-side logout API
       await fetch('/api/admin/logout', { method: 'POST' });
 
-      // 2. Client-side cookie cleanup (extra layer of safety)
-      Cookies.remove('admin_token', { path: '/' });
-      Cookies.remove('admin_token');
-      Cookies.remove('next-auth.session-token', { path: '/' });
-      Cookies.remove('__Secure-next-auth.session-token', { path: '/' });
-      
-      // 3. Clear all session and local storage
-      window.localStorage.clear();
-      window.sessionStorage.clear();
-
-      // 4. Force a hard redirect to the home page
-      // This will reset all React state and trigger middleware immediately
-      window.location.href = '/';
+      // 2. Client-side cleanup and redirect via AuthContext
+      logout();
     } catch (error) {
       console.error('Logout error:', error);
-      // Even if API fails, try to redirect
-      window.location.href = '/';
+      // Even if API fails, clear local state
+      logout();
     }
   };
 

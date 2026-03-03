@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     }
 
     // Find the user
-    const user = users.find((u: User) => u.username === username);
+    const user = users.find((u: User) => u.username.trim() === username.trim());
 
     if (!user) {
       return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });

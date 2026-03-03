@@ -6,13 +6,13 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Paths that should trigger unauthorized message if not logged in
-  if (pathname.startsWith('/admin') && pathname !== '/admin/login' && pathname !== '/admin/signup' && !adminToken) {
-    // Redirect to the unauthorized page instead of login
-    return NextResponse.redirect(new URL('/unauthorized', request.url));
+  if (pathname.startsWith('/admin') && pathname !== '/admin-login' && !adminToken) {
+    // Redirect to the login page instead of unauthorized
+    return NextResponse.redirect(new URL('/admin-login', request.url));
   }
 
-  // If already logged in and trying to access login/signup page, redirect to admin dashboard
-  if ((pathname === '/admin/login' || pathname === '/admin/signup') && adminToken) {
+  // If already logged in and trying to access login page, redirect to admin dashboard
+  if (pathname === '/admin-login' && adminToken) {
     return NextResponse.redirect(new URL('/admin', request.url));
   }
 
@@ -21,5 +21,5 @@ export function middleware(request: NextRequest) {
 
 // Configure the paths where the middleware should run
 export const config = {
-  matcher: ['/admin/:path*'], // Apply middleware to all paths under /admin
+  matcher: ['/admin/:path*', '/admin-login'], // Apply middleware to /admin and /admin-login
 };

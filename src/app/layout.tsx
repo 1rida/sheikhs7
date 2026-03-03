@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
+import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { SearchProvider } from "@/context/SearchContext";
 import "./globals.css";
@@ -40,16 +41,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SearchProvider>
-          <CartProvider>
-            <AnnouncementBar />
-            <Header />
-            {children}
-            <PaymentMethods />
-            <Footer />
-            <WhatsAppFloatingButton />
-          </CartProvider>
-        </SearchProvider>
+        <AuthProvider>
+          <SearchProvider>
+            <CartProvider>
+              <AnnouncementBar />
+              <Header />
+              {children}
+              <PaymentMethods />
+              <Footer />
+              <WhatsAppFloatingButton />
+            </CartProvider>
+          </SearchProvider>
+        </AuthProvider>
       </body>
     </html>
   );
