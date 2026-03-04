@@ -76,7 +76,7 @@ const ProductCardsSection = () => {
   return (
     <div ref={sectionRef} className="bg-neutral-100 py-12">
       <div className="container mx-auto px-4">
-        <h2 ref={headingRef} className="text-5xl font-extrabold text-center mb-4">
+        <h2 ref={headingRef} className="text-5xl text-black font-extrabold text-center mb-4">
           Our Products
         </h2>
         <p
